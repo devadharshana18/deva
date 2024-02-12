@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Warning Popup</title>
+  <style>
+    #overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+    }
+
+    #popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #fff;
+        width: 400px;
+        height: 200px;
+        margin-left: -200px; /*Half the value of width to center div*/
+        margin-top: -100px; /*Half the value of height to center div*/
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #popupclose {
+        float: right;
+        padding: 10px;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="maincontent">
+    <h1>Welcome to Our Website</h1>
+    <p>Please note that this website is under construction. Some features may not work properly.</p>
+</div>
+<div id="overlay"></div>
+<div id="popup">
+    <div class="popupcontrols">
+        <span id="popupclose">X</span>
+    </div>
+    <div class="popupcontent">
+        <h1>Warning</h1>
+        <p>This website is under construction. Some features may not work properly.</p>
+    </div>
+</div>
+<script type="text/javascript">
+    // Initialize Variables
+    var closePopup = document.getElementById("popupclose");
+    var overlay = document.getElementById("overlay");
+    var popup = document.getElementById("popup");
+    // Close Popup Event
+    closePopup.onclick = function() {
+      overlay.style.display = 'none';
+      popup.style.display = 'none';
+    };
+    // Show Overlay and Popup
+    window.onload = function() {
+      overlay.style.display = 'block';
+      popup.style.display = 'block';
+    }
+</script>
+</body>
+</html>
